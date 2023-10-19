@@ -129,15 +129,15 @@ export interface TextareaProps
   buttonText?: string | undefined;
   textColor?: colors;
   imageStyle?: string;
-  handleChange?:(event: React.ChangeEvent<HTMLTextAreaElement>) =>void;
-  handleKeyPress?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void;
-  handleFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
+  onChange?:(event: React.ChangeEvent<HTMLTextAreaElement>) =>void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void;
+  onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
   disabled?: boolean;
 }
 
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ showIconListForTextArea, imageSrc,handleChange,handleKeyPress,handleFocus,disabled=false, imageStyle, textColor, buttonText, iconList, iconStyle, createButton, dividerText, buttonContent, labelList, attachIcon, dueDateList, dueDateButtonName, assignList, labelButtonName, assignButtonName, hasDivider, titlePlaceholder, icon, variant, icons, textareavariant, placeholder, showMoodButton, textAreaButtonvariant, secondButtonText, submitButton, firstButtonText, label, className, ...props }, ref) => {
+  ({ showIconListForTextArea, imageSrc,onChange,onKeyDown,onFocus,disabled=false, imageStyle, textColor, buttonText, iconList, iconStyle, createButton, dividerText, buttonContent, labelList, attachIcon, dueDateList, dueDateButtonName, assignList, labelButtonName, assignButtonName, hasDivider, titlePlaceholder, icon, variant, icons, textareavariant, placeholder, showMoodButton, textAreaButtonvariant, secondButtonText, submitButton, firstButtonText, label, className, ...props }, ref) => {
     const [showComment, setShowComment] = useState(false);
     const [showWrite, setShowWrite] = useState(false);
     const [showIcon, setShowIcon] = useState(false);
@@ -275,9 +275,9 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                   <textarea
                     className={cn("pl-1.5", (textAreaVariants({ variant, textareavariant })))}
                     placeholder={placeholder}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyPress}
-                    onFocus={handleFocus}
+                    onChange={onChange}
+                    onKeyDown={onKeyDown}
+                    onFocus={onFocus}
                     disabled={disabled}
                     ref={ref}
                     {...props}
