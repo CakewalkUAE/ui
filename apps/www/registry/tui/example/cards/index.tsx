@@ -49,6 +49,7 @@ import { CardsNotification } from "./notification";
 import { CardsCommandPalettes } from "./command-palettes";
 import { CardsSteps } from "./steps";
 import { CardsForm } from "./form";
+import { CardsCalendarPicker } from "./calendarPicker";
 
 
 export default function CardsDemo() {
@@ -239,6 +240,7 @@ export default function CardsDemo() {
           </TabsContent>
 
           <TabsContent value="pg-components" className="flex flex-col space-y-5">
+            <CardsCalendarPicker />
             <CardsForm/>
             <CardsBreadcrumb />
             <CardsNotification />
